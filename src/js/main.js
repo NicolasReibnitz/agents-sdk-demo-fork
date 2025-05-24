@@ -50,10 +50,10 @@ const callbacks = {
 
 /* agentManager.speak() -> Streaming API (Bring your own LLM) */
 function speak(text) {
-	let val = text || textArea.value;
+	const val = text || textArea.value;
 	/* Speak supports a minimum of 3 characters */
 	if (val !== '' && val.length > 2) {
-		let speak = agentManager.speak({
+		const speak = agentManager.speak({
 			type: 'text',
 			input: val
 		});
@@ -66,9 +66,9 @@ function speak(text) {
 
 /* agentManager.chat() -> Agents API (communicating with your created Agent and its knowledge -> Streams back the D-ID's LLM response) */
 function chat() {
-	let val = textArea.value;
+	const val = textArea.value;
 	if (val !== '') {
-		let chat = agentManager.chat(val);
+		const chat = agentManager.chat(val);
 		console.log(`agentManager.chat("${val}")`, chat);
 		connectionLabel.innerHTML = 'Thinking..';
 		textArea.value = '';
@@ -77,7 +77,7 @@ function chat() {
 
 /* agentManager.reconnect() -> Reconnect the Agent to a new WebRTC session */
 function reconnect() {
-	let reconnect = agentManager.reconnect();
+	const reconnect = agentManager.reconnect();
 	log('system', reconnect, 'reconnect');
 }
 
@@ -107,7 +107,7 @@ window.addEventListener('load', () => {
 });
 
 /* 6. *** Finally *** Create the 'agentManager' instance with the values created in previous steps */
-let agentManager = await sdk.createAgentManager(agentId, {
+const agentManager = await sdk.createAgentManager(agentId, {
 	auth: { type: 'key', clientKey },
 	callbacks,
 	streamOptions: { compatibilityMode: 'auto', streamWarmup: false }
@@ -134,14 +134,14 @@ window.agentManager = agentManager;
 
 /* Happy Coding! */
 
-/* agentManager.disconnect() -> Terminates the current Agent's WebRTC session (Not implemented in this code example) */
-// function disconnect() {
-// 	let disconnect = agentManager.disconnect();
-// 	console.log('agentManager.disconnect()', disconnect);
-// }
+/* agentManager.disconnect() -> Terminates the current Agent's WebRTC session (Not implemented in this code example)
+function disconnect() {
+	let disconnect = agentManager.disconnect();
+	console.log('agentManager.disconnect()', disconnect);
+} */
 
-/* agentManager.rate() -> Rating the Agent's answers - for future Agents Analytics and Insights feature */
-// function rate(messageID, score) {
-// 	let rate = agentManager.rate(messageID, score);
-// 	console.log(`Message ID: ${messageID} Rated:${score}\n`, 'Result', rate);
-// }
+/* agentManager.rate() -> Rating the Agent's answers - for future Agents Analytics and Insights feature
+function rate(messageID, score) {
+	let rate = agentManager.rate(messageID, score);
+	console.log(`Message ID: ${messageID} Rated:${score}\n`, 'Result', rate);
+} */

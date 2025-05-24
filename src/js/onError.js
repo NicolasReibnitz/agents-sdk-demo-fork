@@ -1,6 +1,6 @@
 import { log } from './utils.js';
 
-let connectionLabel = document.querySelector('#connectionLabel');
+const connectionLabel = document.querySelector('#connectionLabel');
 
 function onError(error, errorData) {
 	connectionLabel.innerHTML = `<span style="color:red">Something went wrong :(</span>`;

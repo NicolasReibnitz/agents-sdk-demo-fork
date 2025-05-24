@@ -1,4 +1,4 @@
-let answers = document.querySelector('#answers');
+const answers = document.querySelector('#answers');
 
 function log(role, msg, type) {
 	const timestamp = timeDisplay();
@@ -15,7 +15,7 @@ function log(role, msg, type) {
 		roleLabel = '👤 USER';
 	}
 
-	let string = `[${roleLabel}] ${type}`;
+	const string = `[${roleLabel}] ${type}`;
 	let htmlString = `<p class="${role}"><span class="timestamp">${timestamp} - </span>${string}`;
 	if (msg && typeof msg === 'string') htmlString += ` : ${msg}`;
 	htmlString += '</p>';

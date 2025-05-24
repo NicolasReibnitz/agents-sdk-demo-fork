@@ -1,8 +1,8 @@
-let textArea = document.querySelector('#textArea');
-let langSelect = document.querySelector('#langSelect');
-let speechButton = document.querySelector('#speechButton');
-let chatButton = document.querySelector('#chatButton');
-let speakButton = document.querySelector('#speakButton');
+const textArea = document.querySelector('#textArea');
+const langSelect = document.querySelector('#langSelect');
+const speechButton = document.querySelector('#speechButton');
+const chatButton = document.querySelector('#chatButton');
+const speakButton = document.querySelector('#speakButton');
 
 var recognizing;
 let recognition;

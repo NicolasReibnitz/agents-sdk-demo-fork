@@ -1,6 +1,6 @@
 import { log } from './utils.js';
 
-let videoElement = document.querySelector('#videoElement');
+const videoElement = document.querySelector('#videoElement');
 
 function onSrcObjectReady(value, srcObject) {
 	log('system', value, 'onSrcObjectReady');

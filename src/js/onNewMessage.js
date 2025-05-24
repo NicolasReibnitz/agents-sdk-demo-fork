@@ -1,12 +1,12 @@
 import { log } from './utils.js';
 
-let answers = document.querySelector('#answers');
+const answers = document.querySelector('#answers');
 
 function onNewMessage(messages, type) {
 	log('system', messages, 'onNewMessage');
 	// We want to show only the last message from the entire 'messages' array
-	let lastIndex = messages.length - 1;
-	let msg = messages[lastIndex];
+	const lastIndex = messages.length - 1;
+	const msg = messages[lastIndex];
 
 	// Show Rating buttons only for the Agent's (assistant) full answers
 	if (msg && msg.role === 'assistant' && messages.length !== 1) {
