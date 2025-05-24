@@ -1,0 +1,59 @@
+{
+	"agent": {
+		"preview_thumbnail": "https://clips-presenters.d-id.com/v2/org_EgRZUuvmTX65H2LTWp1Nj/wN4HhutbuQ/4ieci_NVRA/thumbnail.png",
+		"chats": 754,
+		"created_at": "2025-05-21T17:53:30.450Z",
+		"greetings": ["Hi! I'm Sarah. How can I help you?"],
+		"preview_name": "Sarah",
+		"status": "done",
+		"created_by": "org_wzQr_HWEDuhoUgjduYLDj",
+		"access": "unlisted",
+		"score": 754,
+		"llm": {
+			"template": "rag-grounded",
+			"model": "gpt-35-turbo",
+			"prompt_customization": {
+				"personality": "Friendly and Professional"
+			},
+			"prompt_version": "v2",
+			"provider": "openai"
+		},
+		"modified_at": "2025-05-24T01:48:39.846Z",
+		"embed": true,
+		"presenter": {
+			"voice": {
+				"language": "English",
+				"access": "premium",
+				"model_id": "eleven_turbo_v2",
+				"type": "elevenlabs",
+				"voice_id": "XrExE9yKIg1WjnnlVkGX"
+			},
+			"presenter_id": "v2_private_org_EgRZUuvmTX65H2LTWp1Nj@wN4HhutbuQ",
+			"thumbnail": "https://clips-presenters.d-id.com/v2/org_EgRZUuvmTX65H2LTWp1Nj/wN4HhutbuQ/4ieci_NVRA/thumbnail.png",
+			"driver_id": "4ieci_NVRA",
+			"is_greenscreen": true,
+			"idle_video": "https://agents-results.d-id.com/org_wzQr_HWEDuhoUgjduYLDj/google-oauth2|117313521329867637797/agt_RbVDxLo6/idle_1747850133377.mp4",
+			"type": "clip"
+		},
+		"knowledge": {
+			"provider": "pinecone",
+			"id": "knl_Ws5I9ZukC-z3hBC34viZR",
+			"embedder": {
+				"trim": {
+					"start": 0,
+					"end": 512
+				},
+				"provider": "azure-open-ai",
+				"model": "text-large-003",
+				"is_limited_language": false
+			},
+			"starter_message": []
+		},
+		"id": "agt_RbVDxLo6",
+		"owner_id": "org_wzQr_HWEDuhoUgjduYLDj",
+		"metadata": {
+			"plan": "deid-enterprise"
+		}
+	},
+	"starterMessages": []
+}
