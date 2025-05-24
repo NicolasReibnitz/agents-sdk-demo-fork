@@ -1,25 +1,25 @@
-const textArea = document.querySelector('#textArea');
-const langSelect = document.querySelector('#langSelect');
-const speechButton = document.querySelector('#speechButton');
-const chatButton = document.querySelector('#chatButton');
-const speakButton = document.querySelector('#speakButton');
+const textArea = document.querySelector('#textArea') as HTMLTextAreaElement;
+const langSelect = document.querySelector('#langSelect') as HTMLSelectElement;
+const speechButton = document.querySelector('#speechButton') as HTMLButtonElement;
+const chatButton = document.querySelector('#chatButton') as HTMLButtonElement;
+const speakButton = document.querySelector('#speakButton') as HTMLButtonElement;
 
-var recognizing;
-let recognition;
+let recognizing: Boolean;
+let recognition: SpeechRecognition;
 
 if (navigator.userAgent.includes('Firefox')) {
-	recognition = new window.SpeechRecognition();
+	recognition = new SpeechRecognition();
 } else {
-	recognition = new window.webkitSpeechRecognition();
+	recognition = new webkitSpeechRecognition();
 }
+
 recognition.lang = langSelect.value;
 recognition.continuous = true;
 reset();
 recognition.onend = reset;
 
 recognition.onresult = function (event) {
-	console.log(event);
-	for (var i = event.resultIndex; i < event.results.length; ++i) {
+	for (let i = event.resultIndex; i < event.results.length; ++i) {
 		if (event.results[i].isFinal) {
 			console.log('..');
 			textArea.value += event.results[i][0].transcript;
@@ -47,8 +47,8 @@ function toggleStartStop() {
 		recognizing = true;
 		speechButton.style.color = 'red';
 		speechButton.innerHTML = '&#x23F9;';
-		chatButton.setAttribute('disabled', true);
-		speakButton.setAttribute('disabled', true);
+		chatButton.setAttribute('disabled', 'disabled');
+		speakButton.setAttribute('disabled', 'disabled');
 	}
 }
 

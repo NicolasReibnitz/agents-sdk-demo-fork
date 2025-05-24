@@ -1,6 +1,6 @@
-const answers = document.querySelector('#answers');
+const answers = document.querySelector('#answers') as HTMLDivElement;
 
-function log(role, msg, type) {
+function log(role: $TSFixMe, msg: $TSFixMe, type: $TSFixMe) {
 	const timestamp = timeDisplay();
 	let roleLabel = role;
 	if (type === 'onError') {

@@ -7,5 +7,8 @@ module.exports = {
 	extends: ['@das.laboratory/eslint-config-interactive-ts'],
 	rules: {
 		'prefer-const': 'error'
+	},
+	global: {
+		$TSFixMe: 'readonly'
 	}
 };

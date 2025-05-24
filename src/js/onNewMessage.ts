@@ -1,8 +1,9 @@
+import { Message } from '@d-id/client-sdk';
 import { log } from './utils.js';
 
-const answers = document.querySelector('#answers');
+const answers = document.querySelector('#answers') as HTMLDivElement;
 
-function onNewMessage(messages, type) {
+function onNewMessage(messages: Message[], type: 'answer' | 'partial' | 'user') {
 	log('system', messages, 'onNewMessage');
 	// We want to show only the last message from the entire 'messages' array
 	const lastIndex = messages.length - 1;

@@ -1,14 +1,14 @@
 import { log } from './utils.js';
 
-const videoElement = document.querySelector('#videoElement');
-const connectionLabel = document.querySelector('#connectionLabel');
+const videoElement = document.querySelector('#videoElement') as HTMLVideoElement;
+const connectionLabel = document.querySelector('#connectionLabel') as HTMLSpanElement;
 
-function onVideoStateChange(state, agentManager, srcObject) {
+function onVideoStateChange(state: $TSFixMe, agentManager: $TSFixMe, srcObject: $TSFixMe) {
 	log('system', state, 'onVideoStateChange');
 
 	if (state === 'STOP') {
 		videoElement.muted = true;
-		videoElement.srcObject = undefined;
+		videoElement.srcObject = null;
 		videoElement.src = agentManager.agent.presenter.idle_video;
 		connectionLabel.innerHTML = 'Idle';
 	} else {

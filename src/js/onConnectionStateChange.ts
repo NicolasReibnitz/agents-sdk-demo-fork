@@ -1,19 +1,19 @@
 import { log } from './utils.js';
 
-const textArea = document.querySelector('#textArea');
-const langSelect = document.querySelector('#langSelect');
-const speechButton = document.querySelector('#speechButton');
-const connectionLabel = document.querySelector('#connectionLabel');
-const chatButton = document.querySelector('#chatButton');
-const speakButton = document.querySelector('#speakButton');
+const textArea = document.querySelector('#textArea') as HTMLTextAreaElement;
+const langSelect = document.querySelector('#langSelect') as HTMLSelectElement;
+const speechButton = document.querySelector('#speechButton') as HTMLButtonElement;
+const connectionLabel = document.querySelector('#connectionLabel') as HTMLSpanElement;
+const chatButton = document.querySelector('#chatButton') as HTMLButtonElement;
+const speakButton = document.querySelector('#speakButton') as HTMLButtonElement;
 
-function onConnectionStateChange(state, agentManager, chat) {
+function onConnectionStateChange(state: string, agentManager: $TSFixMe, chat: $TSFixMe) {
 	log('system', state, 'onConnectionStateChange');
 
 	if (state === 'connecting') {
 		connectionLabel.innerHTML = 'Connecting..';
-		document.querySelector('#container').style.display = 'flex';
-		document.querySelector('#hidden').style.display = 'none';
+		(document.querySelector('#container') as HTMLDivElement).style.display = 'flex';
+		(document.querySelector('#hidden') as HTMLDivElement).style.display = 'none';
 	} else if (state === 'connected') {
 		// Setting the 'Enter' Key to Send a message
 		textArea.addEventListener('keypress', event => {
@@ -30,7 +30,6 @@ function onConnectionStateChange(state, agentManager, chat) {
 
 		if (agentManager.agent.greetings?.[0]) {
 			log('assistant', agentManager.agent.greetings[0], 'greeting');
-			// speak(agentManager.agent.greetings[0]);
 		}
 	} else if (state === 'disconnected' || state === 'closed') {
 		textArea.removeEventListener('keypress', event => {
@@ -39,13 +38,14 @@ function onConnectionStateChange(state, agentManager, chat) {
 				chat();
 			}
 		});
-		document.querySelector('#hidden_h2').innerHTML = `${agentManager.agent.preview_name} Disconnected`;
-		document.querySelector('#hidden').style.display = 'block';
-		document.querySelector('#container').style.display = 'none';
-		chatButton.setAttribute('disabled', true);
-		speakButton.setAttribute('disabled', true);
-		langSelect.setAttribute('disabled', true);
-		speechButton.setAttribute('disabled', true);
+		(document.querySelector('#hidden_h2') as HTMLHeadingElement).innerHTML =
+			`${agentManager.agent.preview_name} Disconnected`;
+		(document.querySelector('#hidden') as HTMLDivElement).style.display = 'block';
+		(document.querySelector('#container') as HTMLDivElement).style.display = 'none';
+		chatButton.setAttribute('disabled', 'disabled');
+		speakButton.setAttribute('disabled', 'disabled');
+		langSelect.setAttribute('disabled', 'disabled');
+		speechButton.setAttribute('disabled', 'disabled');
 		connectionLabel.innerHTML = '';
 	}
 }

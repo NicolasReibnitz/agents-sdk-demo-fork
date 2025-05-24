@@ -1,10 +1,7 @@
 import { log } from './utils.js';
 
-const videoElement = document.querySelector('#videoElement');
-
-function onSrcObjectReady(value, srcObject) {
+function onSrcObjectReady(value: MediaStream, srcObject: MediaStream) {
 	log('system', value, 'onSrcObjectReady');
-	videoElement.srcObject = value;
 	srcObject = value;
 	return srcObject;
 }
